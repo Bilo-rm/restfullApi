@@ -5,7 +5,8 @@ const router = Router();
 
 router.get('/', controller.getStudents);
 
-router.post('/add',controller.postStudents);
+router.get("/:id",controller.getStudentsById);
+router.post('/',controller.addStudents);
 
 
 module.exports = router;

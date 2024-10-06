@@ -1,6 +1,7 @@
 const getStudents ="SELECT * FROM students";
-const getStudentsById = "SELECT * FROM studens WEHRE id = $1";
+const getStudentsById = "SELECT * FROM students WHERE id=$1";
 
 module.exports = {
     getStudents,
+    getStudentsById,
 }
