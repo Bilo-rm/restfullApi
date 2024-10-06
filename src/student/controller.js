@@ -52,9 +52,29 @@ const removeStudents = (req, res) => {
 }
 
 
+const editStudents = (req ,res ) =>{
+const id = parseInt(req.params.id);
+const {name}= req.body;
+pool.query(queries.getStudentsById, [id], (error, results) => {
+    //if no student with the same id
+    const noStudentFound = !results.rows.length;
+    if(noStudentFound){
+    res.send("Student not found!");
+    }
+
+    pool.query(queries.editStudent, [name, id], (error,results)=> {
+        if(error) throw error;
+        res.send(`student name changed to ${name}`);
+    })
+});
+
+}
+
+
 module.exports ={
     getStudents,
     addtStudents,
     getStudentsById,
     removeStudents,
+    editStudents,
 }
