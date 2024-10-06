@@ -35,8 +35,18 @@ const addtStudents = (req, res)=>{
 };
 
 
+const removeStudents = (req, res) => {
+    const id = parseInt(req.params.id);
+    pool.query(queries.removeStudent, [id], (error, results) => {
+        if (error) throw error;
+        res.status(201).send("Student removed successfully!");
+    });
+}
+
+
 module.exports ={
     getStudents,
     addtStudents,
     getStudentsById,
+    removeStudents,
 }

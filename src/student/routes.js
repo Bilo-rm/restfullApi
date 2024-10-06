@@ -7,6 +7,7 @@ router.get('/', controller.getStudents);
 
 router.get("/:id",controller.getStudentsById);
 router.post('/',controller.addtStudents);
+router.delete('/:id',controller.removeStudents);
 
 
 module.exports = router;
